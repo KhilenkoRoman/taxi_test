@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orders</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/styles.css"%}">
+</head>
+<body>
+<div class="login_wrap">
+
+    <table>
+    <tr style="border-bottom: solid black 1px">
+        <th>имя</th>
+        <th>адрес заказа</th>
+        <th>статус</th>
+    </tr>
+    {% for order in orders %}
+    <tr>
+        <th><a href="{% url 'order' order.id %}">{{order.name}}</a></th>
+        <th>{{order.order_address}}</th>
+        <th>{{order.status}}</th>
+    </tr>
+    {% endfor %}
+    </table>
+
+    <div id="paginator">
+        {% for page in orders.paginator.page_range %}
+                <a class="page" href="?page={{ page }}"> {{ page }}</a>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

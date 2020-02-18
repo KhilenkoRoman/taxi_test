@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/styles.css"%}">
+</head>
+<body>
+<div class="login_wrap">
+    {% if result %}
+    <div class="order_form">
+        <p>Спасибо за заказ, номер заказа {{ order_id }}, марка машины {{car_model}}</p>
+    </div>
+    {% elif result is False %}
+        <div class="order_form">
+        <p>Извените свободных машин нет</p>
+    </div>
+    {% else %}
+    <form class="order_form" action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <label>Имя (только кирилица)
+            <input name="name" type="text" required value="{{ name }}">
+        </label>
+
+        <label>телефон
+            <input name="phone" type="tel" required placeholder="+38(xx)xxx-xx-xx"  value="{{ phone }}">
+        </label>
+
+        <label>адресс откуда
+            <input name="order_address" type="text" required value="{{ order_address }}">
+        </label>
+
+        <label>адрес куда
+            <input name="target_address" type="text" required value="{{ target_address }}">
+        </label>
+
+        <button>заказать</button>
+        {% for error in errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+    </form>
+    {% endif %}
+    </div>
+</body>
+</html>
+

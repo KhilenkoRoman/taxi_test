@@ -1,0 +1,62 @@
+
+
+.login_form {
+    margin: 100px auto;
+    width: 200px;
+    border: 2px solid #525151;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.login_form button{
+    margin: 20px 0 0 30px;
+    width: 80px;
+}
+
+.login_wrap{
+    width: 100%;
+}
+
+.error{
+    color: red;
+}
+
+.order_form {
+    margin: 100px auto;
+    width: 200px;
+    border: 2px solid #525151;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.order_form input{
+    margin-bottom: 10px;
+}
+
+
+.order_wrap{
+    width: 100%;
+}
+
+.login_wrap table{
+    width: 400px;
+    margin: 100px auto 10px auto;
+}
+
+.login_wrap table th{
+    font-weight: normal;
+}
+
+#paginator {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#paginator .page{
+    width: 10px;
+}
+
+.order_wrap{
+    width: 400px;
+    margin: 100px auto;
+}

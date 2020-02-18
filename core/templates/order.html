@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orders</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/styles.css"%}">
+</head>
+<body>
+<div class="order_wrap">
+
+    <p>id: {{ order.id }}</p>
+    <p>name: {{ order.name }}</p>
+    <p>phone_number: {{ order.phone_number }}</p>
+    <p>status: {{ order.status }}</p>
+    <p>order_address: {{ order.order_address }}</p>
+    <p>target_address: {{ order.target_address }}</p>
+    <p>date_created: {{ order.date_created }}</p>
+
+    <p>car model: {{ order.car.model }}</p>
+    <p>car number: {{ order.car.car_number }}</p>
+
+    {% if order.status == 'active' %}
+    <form action="{% url "end-order" order_id=order.id %}" method="post">
+        {% csrf_token %}
+        <button>завершить заказ</button>
+    </form>
+    {% endif %}
+</div>
+</body>
+</html>
